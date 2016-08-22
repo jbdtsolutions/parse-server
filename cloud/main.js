@@ -1,8 +1,7 @@
 Parse.Cloud.define('sendPush', function(request, response) {
  
     var pushQuery = new Parse.Query(Parse.Installation);
-    pushQuery.whereEqualTo("email", email);
-
+    pushQuery.whereEqualTo("email", request.params.email);
 
    Parse.Push.send({
    where: pushQuery,
@@ -22,3 +21,5 @@ Parse.Cloud.define('sendPush', function(request, response) {
    });
 
     });
+	
+	
